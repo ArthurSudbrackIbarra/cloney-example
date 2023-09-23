@@ -1,0 +1,9 @@
+body {
+    {{- if .dark_mode }}
+    background-color: #000;
+    color: #fff;
+    {{- else }}
+    background-color: #fff;
+    color: #000;
+    {{- end }}
+}

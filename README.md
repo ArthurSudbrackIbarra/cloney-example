@@ -1,1 +1,1 @@
-# cloney-example
+# Cloney Example Repository

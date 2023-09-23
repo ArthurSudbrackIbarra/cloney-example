@@ -1,0 +1,41 @@
+{{- $appName := .app_name }}
+
+{{- define "currency-page" -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Currency {{ .name }}</title>
+</head>
+<body>
+    <h1>Currency: {{ .name }}</h1>
+    <h2>Symbol: {{ .symbol }}</h2>
+    <h2>Description: {{ .description }}</h2>
+</body>
+</html>
+{{- end -}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>{{ $appName }} - Currencies</title>
+</head>
+<body>
+    <h1>Currencies</h1>
+    <p>Here is a list of all the supported currencies:</p>
+    <ul>
+    {{- range .currencies }}
+    {{- $fileName := printf "%s.html" .name }}
+    {{- toFile $fileName "currency-page" . }}
+      <li>
+        <a href="{{ $fileName }}">{{ .name }}</a>
+      </li>
+    {{- end }}
+    </ul>
+</body>
+</html>
