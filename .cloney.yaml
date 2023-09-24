@@ -44,6 +44,9 @@ variables:
       - name: Yen
         symbol: ¥
         description: "Japanese Yen"
+      - name: Brazilian Real
+        symbol: R$
+        description: "Brazilian Real"
     example:
       - name: USD
         symbol: $

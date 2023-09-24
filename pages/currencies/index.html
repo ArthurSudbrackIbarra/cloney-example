@@ -1,50 +1,65 @@
 {{- define "currency-page" -}}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css">
-    <title>{{ .root.app_name }} - Currency {{ .param.name }}</title>
-</head>
-<body>
-    <h1>Currency: {{ .param.name }}</h1>
-    <h2>Symbol: {{ .param.symbol }}</h2>
-    <h2>Description: {{ .param.description }}</h2>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>{{ .root.app_name }} - {{ .param.name }}</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="display-4">{{ .param.name }}</h1>
+      <p class="lead">More information about this currency:</p>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-secondary">
+          <h5 class="mb-1">Symbol</h5>
+          <p class="mb-0">{{ .param.symbol }}</p>
+        </li>
+        <li class="list-group-item list-group-item-secondary">
+          <h5 class="mb-1">Description</h5>
+          <p class="mb-0">{{ .param.description }}</p>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
 {{- end -}}
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
     <title>{{ .app_name }} - Currencies</title>
-</head>
-<body>
-    <h1>Currencies</h1>
-    <p>Here is a list of all the supported currencies:</p>
-    <ul>
-    {{- range .currencies }}
-    {{- $fileName := printf "%s.html" .name }}
-      <li>
-        <a href="{{ $fileName }}">{{ .name }}</a>
-      </li>
-    {{- /*
-      To access root-level variables within the "currency-page" template,
-      you should create a dictionary and then pass it to the template.
-      To achieve this, follow these steps:
-      
-      1. Create a dictionary using the "dict" function.
-      2. Set the "root" key of the dictionary to your root-level variables.
-      3. Set the "param" key of the dictionary to the parameter you intend to pass to the template.
-      4. Finally, pass the created dictionary to the 'toFile' function.
-     */ -}}
-    {{- $dict := dict "root" $ "param" . -}}
-    {{- toFile $fileName "currency-page" $dict -}}
-    {{- end }}
-    </ul>
-</body>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="display-4">Currencies</h1>
+      <p class="lead">Here is a list of all the supported currencies:</p>
+      <div class="list-group mt-4">
+        {{- range .currencies }} {{- $fileName := printf "%s.html" .name }}
+        <a
+          href="{{ $fileName }}"
+          target="_blank"
+          class="list-group-item list-group-item-action list-group-item-secondary"
+          ><strong>{{ .name }}</strong></a
+        >
+        {{- $dict := dict "root" $ "param" . -}} {{- toFile $fileName
+        "currency-page" $dict -}} {{- end }}
+      </div>
+    </div>
+  </body>
 </html>
