@@ -41,6 +41,9 @@ variables:
       - name: GBP
         symbol: £
         description: "British Pound"
+      - name: Yen
+        symbol: ¥
+        description: "Japanese Yen"
     example:
       - name: USD
         symbol: $
@@ -51,3 +54,6 @@ variables:
       - name: GBP
         symbol: £
         description: "British Pound"
+      - name: Yen
+        symbol: ¥
+        description: "Japanese Yen"

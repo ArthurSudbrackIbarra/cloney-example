@@ -1,5 +1,3 @@
-{{- $appName := .app_name }}
-
 {{- define "currency-page" -}}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>Currency {{ .name }}</title>
+    <title>{{ .root.app_name }} - Currency {{ .param.name }}</title>
 </head>
 <body>
-    <h1>Currency: {{ .name }}</h1>
-    <h2>Symbol: {{ .symbol }}</h2>
-    <h2>Description: {{ .description }}</h2>
+    <h1>Currency: {{ .param.name }}</h1>
+    <h2>Symbol: {{ .param.symbol }}</h2>
+    <h2>Description: {{ .param.description }}</h2>
 </body>
 </html>
 {{- end -}}
@@ -23,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>{{ $appName }} - Currencies</title>
+    <title>{{ .app_name }} - Currencies</title>
 </head>
 <body>
     <h1>Currencies</h1>
@@ -31,10 +29,21 @@
     <ul>
     {{- range .currencies }}
     {{- $fileName := printf "%s.html" .name }}
-    {{- toFile $fileName "currency-page" . }}
       <li>
         <a href="{{ $fileName }}">{{ .name }}</a>
       </li>
+    {{- /*
+      To access root-level variables within the "currency-page" template,
+      you should create a dictionary and then pass it to the template.
+      To achieve this, follow these steps:
+      
+      1. Create a dictionary using the "dict" function.
+      2. Set the "root" key of the dictionary to your root-level variables.
+      3. Set the "param" key of the dictionary to the parameter you intend to pass to the template.
+      4. Finally, pass the created dictionary to the 'toFile' function.
+     */ -}}
+    {{- $dict := dict "root" $ "param" . -}}
+    {{- toFile $fileName "currency-page" $dict -}}
     {{- end }}
     </ul>
 </body>
