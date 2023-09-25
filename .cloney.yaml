@@ -17,6 +17,14 @@ license: MIT
 authors:
   - Arthur Ibarra
 
+# Configuration for the template repository.
+configuration:
+  # A list of paths to ignore when cloning the template.
+  # This is useful for excluding files that are not relevant to the template's customization process.
+  ignore_paths:
+    - ignore/*.html
+    - ignore/ignore-2/*.txt
+
 # A list of variables that users can customize during the cloning process.
 variables:
   - name: app_name
