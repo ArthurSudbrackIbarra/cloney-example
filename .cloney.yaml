@@ -21,9 +21,7 @@ authors:
 configuration:
   # A list of paths to ignore when cloning the template.
   # This is useful for excluding files that are not relevant to the template's customization process.
-  ignore_paths:
-    - ignore/*.html
-    - ignore/ignore-2/*.txt
+  ignore_paths: []
 
 # A list of variables that users can customize during the cloning process.
 variables:
@@ -40,31 +38,28 @@ variables:
   - name: currencies
     description: A list of currencies
     default:
-      - name: USD
-        symbol: $
-        description: "United States Dollar"
       - name: EUR
         symbol: €
         description: "Euro"
+        usd_rate: 1.06
       - name: GBP
         symbol: £
         description: "British Pound"
+        usd_rate: 1.22
       - name: Yen
         symbol: ¥
         description: "Japanese Yen"
+        usd_rate: 0.0067
       - name: Brazilian Real
         symbol: R$
         description: "Brazilian Real"
+        usd_rate: 0.20
     example:
-      - name: USD
-        symbol: $
-        description: "United States Dollar"
       - name: EUR
         symbol: €
         description: "Euro"
+        usd_rate: 1.06
       - name: GBP
         symbol: £
         description: "British Pound"
-      - name: Yen
-        symbol: ¥
-        description: "Japanese Yen"
+        usd_rate: 1.22
