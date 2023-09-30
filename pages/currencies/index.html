@@ -75,7 +75,8 @@
       <h1 class="display-4">Currencies</h1>
       <p class="lead">Here is a list of all the supported currencies:</p>
       <div class="list-group mt-4">
-        {{- range .currencies }} {{- $fileName := printf "%s.html" .name }}
+        {{- range .currencies }}
+        {{- $fileName := printf "%s.html" .name }}
         <a
           href="{{ $fileName }}"
           target="_blank"
@@ -86,8 +87,10 @@
         the root-level variables, but also the current currency data, we need to
         pass both of them to the template. We can do this by creating a
         dictionary with the 'root' and 'param' keys, and then passing that
-        dictionary to the template. */ -}} {{- $dict := dict "root" $ "param" .
-        -}} {{- toFile $fileName "currency-page" $dict -}} {{- end }}
+        dictionary to the template. */ -}}
+        {{- $dict := dict "root" $ "param" . -}}
+        {{- toFile $fileName "currency-page" $dict -}}
+        {{- end }}
       </div>
     </div>
   </body>

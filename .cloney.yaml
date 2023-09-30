@@ -27,7 +27,7 @@ configuration:
 variables:
   - name: app_name
     description: The name of the application.
-    # default: My Bank App
+    default: My Bank App
     example: My Bank App
 
   - name: dark_mode
