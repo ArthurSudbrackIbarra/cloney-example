@@ -1,0 +1,65 @@
+# The version of this Cloney manifest file, ensuring compatibility with different versions of Cloney.
+manifest_version: v1
+
+# The name of your template, providing a clear identifier for users.
+name: cloney-example-repository
+
+# A brief but informative description of your template's purpose and functionality.
+description: An example Cloney repository to create a simple HTML bank site.
+
+# The version number of your template. Update it as you make new changes to your template.
+template_version: "0.0.0"
+
+# The licensing information for your template, specifying how others can use and distribute it.
+license: MIT
+
+# A list of contributors or creators of the template, acknowledging their role in its development.
+authors:
+  - Arthur Ibarra
+
+# Configuration for the template repository.
+configuration:
+  # A list of paths to ignore when cloning the template.
+  # This is useful for excluding files that are not relevant to the template's customization process.
+  ignore_paths: []
+
+# A list of variables that users can customize during the cloning process.
+variables:
+  - name: app_name
+    description: The name of the application.
+    default: My Bank App
+    example: My Bank App
+
+  - name: dark_mode
+    description: Whether or not to enable dark mode.
+    default: false
+    example: false
+
+  - name: currencies
+    description: A list of currencies
+    default:
+      - name: EUR
+        symbol: €
+        description: "Euro"
+        usd_rate: 1.06
+      - name: GBP
+        symbol: £
+        description: "British Pound"
+        usd_rate: 1.22
+      - name: Yen
+        symbol: ¥
+        description: "Japanese Yen"
+        usd_rate: 0.0067
+      - name: Brazilian Real
+        symbol: R$
+        description: "Brazilian Real"
+        usd_rate: 0.20
+    example:
+      - name: EUR
+        symbol: €
+        description: "Euro"
+        usd_rate: 1.06
+      - name: GBP
+        symbol: £
+        description: "British Pound"
+        usd_rate: 1.22
