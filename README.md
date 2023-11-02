@@ -33,5 +33,5 @@ Here's an example of how to clone this repository using Cloney:
 1. Use `cloney` to clone this repository using the variables defined in `vars.yaml`:
 
     ```bash
-    cloney clone https://github.com/ArthurSudbrackIbarra/cloney-example -v vars.yaml
+    cloney clone https://github.com/ArthurSudbrackIbarra/cloney-example.git -v vars.yaml
     ```
