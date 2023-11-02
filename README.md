@@ -1,5 +1,9 @@
 # Cloney Example Repository
 
-This repository is an example of how to use [Cloney](https://arthursudbrackibarra.github.io/cloney-documentation/).
+<br>
+<p align="center">
+  <img src="readme-images/site-demo.png">
+</p>
+<br>
 
-Feel free to explore it!
+This repository shows an example of how to use [Cloney](https://arthursudbrackibarra.github.io/cloney-documentation/) to create a fictional bank site. Feel free to explore it!
