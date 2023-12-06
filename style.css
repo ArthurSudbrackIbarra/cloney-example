@@ -1,0 +1,29 @@
+:root {
+  --primary-color: {{ .primary_color }};
+}
+
+/*
+  Buttons.
+*/
+.btn {
+  background-color: var(--primary-color) !important;
+}
+.btn:hover {
+  filter: brightness(0.9) !important;
+}
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/*
+  List Group Items
+*/
+.list-group-item {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.list-group-item:hover {
+  filter: brightness(0.9) !important;
+}

@@ -21,20 +21,24 @@ authors:
 configuration:
   # A list of paths to ignore when cloning the template.
   # This is useful for excluding files that are not relevant to the template's customization process.
-  ignore_paths: []
+  ignore_paths:
+    - readme-images
 
 # A list of variables that users can customize during the cloning process.
 variables:
+  # App Name (Custom Variable).
   - name: app_name
     description: The name of the application.
     default: My Bank App
     example: My Bank App
 
-  - name: dark_mode
-    description: Whether or not to enable dark mode.
-    default: false
-    example: false
+  # Primary Color (Custom Variable).
+  - name: primary_color
+    description: "The site's primary color (HEX, RGB, RGBA)."
+    default: "#96afe1"
+    example: "#96afe1"
 
+  # Currencies (Custom Variable).
   - name: currencies
     description: A list of currencies
     default:
