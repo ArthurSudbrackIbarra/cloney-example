@@ -26,11 +26,11 @@ configuration:
 
 # A list of variables that users can customize during the cloning process.
 variables:
-  # App Name (Custom Variable).
-  - name: app_name
-    description: The name of the application.
-    default: My Bank App
-    example: My Bank App
+  # Bank name (Custom Variable).
+  - name: bank_name
+    description: The name of your super bank!
+    default: My Ultra Bank
+    example: My Ultra Bank
 
   # Primary Color (Custom Variable).
   - name: primary_color
